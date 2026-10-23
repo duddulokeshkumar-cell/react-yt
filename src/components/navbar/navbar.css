@@ -1,5 +1,6 @@
 nav{
     padding: 10px 2%;
+    gap: 16px;
     justify-content: space-between;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     background: #fff;
@@ -11,10 +12,24 @@ nav{
 .nav-left .menu-icon{
     width: 22px;
     margin-left: 25px;
+    flex: 0 0 auto;
 }
 
 .nav-left .logo{
-    width: 130px;
+    width: clamp(90px, 10vw, 130px);
+    height: auto;
+    flex: 0 0 auto;
+}
+
+.nav-middle{
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+}
+
+.search-container{
+    width: min(100%, 600px);
+    min-width: 0;
 }
 
 .nav-middle .search-box{
@@ -22,22 +37,105 @@ nav{
     margin-left: 15px;
     padding: 8px 12px;
     border-radius: 25px;
+    background: #fff;
+    width: 100%;
 }
 
 .nav-middle .search-box input{
-    width: 400px;
+    width: 100%;
+    min-width: 0;
     border: 0;
     outline: 0;
     background: transparent;
 }
 
-.nav-middle .search-box img{
+.search-container{
+    position: relative;
+}
+
+.nav-middle .search-box button{
+    display: flex;
+    align-items: center;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-middle .search-box button img{
     width: 15px;
+}
+
+.search-suggestions{
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    overflow: hidden;
+    min-width: 320px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.search-suggestions button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border: 0;
+    background: #fff;
+    text-align: left;
+    cursor: pointer;
+}
+
+.search-suggestions button:hover,
+.search-suggestions button.active{
+    background: #f2f2f2;
+}
+
+.search-suggestions button img{
+    width: 56px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.search-suggestions button span{
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.search-suggestions strong{
+    overflow: hidden;
+    color: #0f0f0f;
+    font-size: 13px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.search-suggestions small,
+.suggestion-status{
+    color: #606060;
+    font-size: 12px;
+}
+
+.suggestion-status{
+    padding: 12px 14px;
 }
 
 .nav-right img{
     width: 25px;
     margin-left: 25px;
+}
+
+.nav-right{
+    flex: 0 0 auto;
 }
 
 .nav-right .user-icon{
@@ -59,7 +157,46 @@ nav{
     .logo{
         width: 90px;
     }
-    .nav-middle .search-box input{
-        width: 100px;
+    nav{
+        gap: 10px;
+        padding: 8px 3%;
+    }
+    .nav-left{
+        min-width: 0;
+    }
+    .nav-middle{
+        justify-content: flex-end;
+    }
+    .nav-middle .search-box{
+        margin-left: 0;
+        padding: 8px 10px;
+    }
+    .search-suggestions{
+        min-width: min(280px, calc(100vw - 24px));
+    }
+    .nav-right img{
+        margin-left: 8px;
+    }
+}
+
+@media(max-width:480px){
+    nav{
+        gap: 8px;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+    .nav-left .logo{
+        width: 76px;
+    }
+    .nav-middle .search-box{
+        padding: 7px 9px;
+    }
+    .nav-right .user-icon{
+        width: 28px;
+    }
+    .search-suggestions{
+        left: auto;
+        width: min(320px, calc(100vw - 24px));
+        min-width: 0;
     }
 }

@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
     background: #fff;
     width: 15%;
     height: 100vh;
@@ -8,62 +8,123 @@
     padding-top: 80px;
 }
 
-.shortcut-links img{
+.shortcut-links img {
     width: 20px;
     margin-right: 20px;
 }
 
-.side-link{
+.side-link {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     width: fit-content;
-    flex-wrap: wrap;
     cursor: pointer;
 }
 
-.sidebar hr{
+.sidebar hr {
     border: 0;
     height: 1px;
     background: #ccc;
     width: 85%;
 }
 
-.subscribed-list h3{
+.subscribed-list h3 {
     font-size: 13px;
     margin: 20px 0;
     color: #5a5a5a;
 }
 
-.subscribed-list img{
+.subscribed-list img {
     width: 25px;
     border-radius: 50%;
     margin-right: 20px;
 }
 
-.small-sidebar{
+.small-sidebar {
     width: 5%;
 }
 
-.small-sidebar p{
+.small-sidebar p {
     display: none;
 }
 
-.small-sidebar h3{
+.small-sidebar h3 {
     display: none;
 }
-.small-sidebar hr{
+
+.small-sidebar hr {
     width: 50%;
     margin-bottom: 25px;
 }
 
-.side-link.active img{
+.side-link.active img {
     padding-bottom: 2px;
     border-bottom: 3px solid red;
 }
 
-@media(max-width:900px){
-    .sidebar{
+@media(max-width:900px) {
+    .sidebar {
+        position: relative;
+        top: auto;
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 10px 0 4px;
+        overflow: hidden;
+    }
+
+    .shortcut-links {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 0 5% 8px;
+        scrollbar-width: none;
+    }
+
+    .shortcut-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar .side-link {
+        flex: 0 0 auto;
+        width: auto;
+        margin: 0;
+        padding: 8px 12px;
+        border-radius: 18px;
+        background: #eee;
+        white-space: nowrap;
+    }
+
+    .sidebar .side-link img {
+        width: 16px;
+        margin-right: 7px;
+    }
+
+    .sidebar .side-link p,
+    .small-sidebar p {
+        display: block;
+        font-size: 13px;
+    }
+
+    .sidebar .side-link.active {
+        background: #0f0f0f;
+        color: #fff;
+    }
+
+    .sidebar .side-link.active p {
+        color: #fff;
+    }
+
+    .sidebar hr,
+    .subscribed-list {
+        display: none;
+    }
+
+    .small-sidebar {
+        width: 100%;
+    }
+
+    .small-sidebar h3 {
         display: none;
     }
 }

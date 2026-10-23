@@ -1,13 +1,16 @@
 .feed{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 30px;
     margin-top: 15px;
+    min-width: 0;
 }
 
 .card img{
     width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 5px;
 }
 
@@ -27,4 +30,11 @@
 
 .card p{
     font-size: 14px;
+}
+
+@media(max-width:600px){
+    .feed{
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 22px;
+    }
 }

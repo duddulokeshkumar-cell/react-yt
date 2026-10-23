@@ -6,6 +6,16 @@
     scroll-behavior: smooth;
 }
 
+html,
+body,
+#root{
+    min-height: 100%;
+}
+
+body{
+    width: 100%;
+}
+
 a{
     text-decoration: none;
     color: #5a5a5a;
